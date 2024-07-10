@@ -1,0 +1,71 @@
+// List Table Css Start
+.list-table-box {
+    @include border-radius(0);
+    .list-table {
+        background-color: $whiteColor;
+        margin: 0;
+        .mdc-data-table__header-row {
+            background: linear-gradient(to right, $linearGradientLightBlueColor, $linearGradientDarkBlueColor);
+            vertical-align: middle;
+            height: 48px;
+            .mdc-data-table__header-cell {
+                @include textSize(14px, $whiteColor);
+                font-weight: $bold;
+                background: transparent;
+                border-bottom: 0;
+                .mat-sort-header-arrow {
+                    color: $whiteColor;
+                }
+                .mat-sort-header-content {
+                    text-align: left;
+                }
+            }
+        }
+        .mdc-data-table__content {
+            .mdc-data-table__row {
+                height: 48px;
+                vertical-align: middle;
+                .mdc-data-table__cell {
+                    background-color: transparent;
+                    border-bottom: 0;
+                    @include text(14px);
+                    text-align: left;
+                    &.link-txt-color {
+                        color: $linkColor;
+                        font-weight: $bold;
+                    }
+                    a {
+                        color: $darkBlueColor;
+                        &:hover {
+                            color: $linkColor;
+                        }
+                    }
+                    p, span, a {
+                        @include text(14px);
+                    }
+                }
+                &:hover{
+                    background-color:  rgba($secondaryColor, 0.3) !important;
+                }
+                &:nth-of-type(2n+1){
+                    background-color: none;
+                }
+                &:nth-of-type(2n){
+                    background-color: rgba($secondaryColor, 0.1);
+                }
+            }
+        }
+        .mdc-data-table__header-row, .mdc-data-table__content {
+            .mdc-data-table__header-cell, .mdc-data-table__cell {
+                min-width: 120px;
+                &:first-child {
+                    min-width: 60px;
+                }
+                &:last-child {
+                    min-width: 160px;
+                }
+            }
+        }
+    }
+}
+// List Table Css End

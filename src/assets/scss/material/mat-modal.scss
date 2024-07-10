@@ -1,0 +1,39 @@
+.modal-dialog {
+    .modal-content {
+        .auth-pages {
+            &.change-password-box {
+                display: inline-block;
+                padding: 15px 20px;
+                width: 100%;
+                .auth-form-header-box {
+                    border-bottom: 0;
+                    padding: 0;
+                    text-align: left;
+                    border-bottom: solid 1px rgba($primaryColor, 0.1);
+                    padding-bottom: 15px;
+                    h6 {
+                        width: 100%;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .auth-form-body-box {
+                padding: 0;
+                .form-group {
+                    mat-icon {
+                        @include icon(20px, $primaryColor);
+                        opacity: 0.5;
+                    }
+                }
+                .auth-pages-btn-box {
+                    border-top: solid 1px rgba($primaryColor, 0.1);
+                    padding-top: 15px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

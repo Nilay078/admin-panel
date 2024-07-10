@@ -1,0 +1,42 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus, @angular-eslint/template/click-events-have-key-events -->
+<header class="header">
+    <mat-toolbar color="primary">
+        <div class="header-detail-box">
+            <a class="logo-box" (click)="gotoDashboard()">
+                <img src="/assets/images/alumnly-logo.png" alt="sauce" />
+            </a>
+            <button mat-icon-button class="burger-menu" (click)="sideNav()">
+                <img
+                    [src]="isExpanded ? 'assets/images/menu-bar-left-arrow.png' : 'assets/images/menu-bar-right-arrow.png'"
+                    alt="menu-bar-img"
+                />
+            </button>
+            <span class="spacer"></span>
+            <button mat-button [matMenuTriggerFor]="userMenu" class="user-photo" (menuOpened)="isOpen = true" (menuClosed)="isOpen = false">
+                <span class="user-img">
+                    <img src="/assets/images/avatar1.jpg" alt="default-profile-picture" />
+                </span>
+                <!-- <p class="user-first-latter mb-0">PP</p> -->
+                <div class="user-name">Super Admin</div>
+                <mat-icon class="expand-icon" iconPositionEnd>
+                    {{ isOpen ? 'expand_less' : 'expand_more' }}
+                </mat-icon>
+            </button>
+
+            <mat-menu class="user-profile-menu" #userMenu="matMenu" xPosition="before">
+                <a mat-menu-item (click)="changePassword()">
+                    <mat-icon>
+                        <span class="material-symbols-outlined"> password </span>
+                    </mat-icon>
+                    Change Password
+                </a>
+                <a mat-menu-item (click)="onLogout()">
+                    <mat-icon>
+                        <span class="material-symbols-outlined"> logout </span>
+                    </mat-icon>
+                    Log Out
+                </a>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+</header>

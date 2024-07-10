@@ -1,0 +1,92 @@
+/* Login Page Css Start */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $buttonTextColor;
+    color: $whiteColor;
+    &.full-height {
+        min-height: 100vh;
+        height: auto;
+        flex-direction: column;
+    }
+    .login-box {
+        width: 100%;
+        max-width: 400px;
+        .login-logo {
+            img {
+                width: 150px;
+                margin-bottom: 30px;
+            }
+        }
+        .login-box-inner {
+            background-color: $darkBlueColor;
+            padding: 30px 35px 10px;
+            margin: 15px 0 20px;
+            @include border-radius(4px);
+            h5 {
+                margin-bottom: 35px;
+                color: $whiteColor
+            }
+            .mat-icon {
+                @include icon(20px, $darkBlueColor);
+            }
+        }
+    }
+    .footer-box {
+        width: 100%;
+        padding: 20px 15px;
+        @include text(14px);
+        color: $whiteColor;
+    }
+    &.otp-main-box {
+        .login-box {
+            max-width: 500px;
+            .login-box-inner {
+                h5 {
+                    margin-bottom: 15px;
+                    text-align: left;
+                    color: $whiteColor;
+                }
+                .otp-sub-title {
+                    @include textSize(12px, $whiteColor);
+                    text-align: left;
+                    font-weight: $normal;
+                    margin-bottom: 15px;
+                }
+                .authenticator-txt {
+                    @include textSize(12px, $whiteColor);
+                    font-weight: $bold;
+                    text-align: left;
+                    margin-bottom: 15px;
+                }
+                .time-left-txt {
+                    @include textSize(14px, $whiteColor);
+                }
+            }
+        }
+    }
+}
+/* Login Page Css End */
+
+@media (max-width: 991px) {
+    /* Login Page Css Start */
+    .login-page {
+        .footer-box {
+            @include text(12px);
+            color: $whiteColor;
+        }
+    }
+    /* Login Page Css End */
+}
+@media (max-width: 575px) {
+    /* Login Page Css Start */
+    .login-page {
+        &.otp-main-box {
+            .login-box {
+                max-width: 400px;
+            }
+        }
+    }
+    /* Login Page Css End */
+}

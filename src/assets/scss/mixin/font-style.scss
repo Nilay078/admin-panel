@@ -1,0 +1,58 @@
+// @include icon(20px, $primaryColor);
+@mixin icon($size, $color) {
+    font-size: $size;
+    font-weight: $bold;
+    color: $color;
+}
+
+// @include heading(20px);
+@mixin heading($size) {
+    font-size: $size;
+    line-height: $size * 1.5;
+    color: $primaryColor;
+    font-weight: $bold;
+    font-family: $poppins;
+}
+
+// @include text(20px);
+@mixin text($size) {
+    font-size: $size;
+    line-height: $size * 1.5;
+    color: $darkGrayColor;
+    font-weight: $normal;
+    font-family: $poppins;
+}
+
+// @include headingSize(20px, $primaryColor);
+@mixin headingSize($size, $color) {
+    font-size: $size;
+    line-height: $size * 1.5;
+    color: $color;
+    font-family: $poppins;
+}
+
+// @include headingSize(20px, $primaryColor);
+@mixin headingSize($size, $color) {
+    font-size: $size;
+    line-height: $size * 1.5;
+    color: $color;
+    font-family: $poppins;
+    font-weight: $bold;
+}
+
+// @include textSize(20px, $primaryColor);
+@mixin textSize($size, $color) {
+    font-size: $size;
+    line-height: $size * 1.5;
+    color: $color;
+    font-family: $poppins;
+}
+
+// @include textAllVariable(20px, $primaryColor, $poppins, $bold);
+@mixin textAllVariable($size, $color, $family, $weight) {
+    font-size: $size;
+    line-height: $size * 1.5;
+    color: $color;
+    font-family: $family;
+    font-weight: $weight;
+}

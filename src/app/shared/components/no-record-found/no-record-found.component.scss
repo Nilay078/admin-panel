@@ -1,0 +1,7 @@
+@import '../../../../assets/scss/import/variable.scss';
+
+.no-record-found-txt{
+    color: $errorMessage;
+    font-weight: $semibold;
+    margin: 15px 0;
+}

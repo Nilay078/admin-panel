@@ -1,0 +1,267 @@
+.two-panel {
+    display: inline-flex;
+    width: 100%;
+    .sidebar-menu-panel {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        z-index: 10;
+        @include transition3s;
+        box-shadow: 0px 3px 12px 0px rgba($blackColor, 0.06);
+        &.left-panel {
+            width: 280px;
+        }
+        &.side-menu-panel {
+            width: 75px;
+            .mat-expansion-indicator {
+                display: none;
+            }
+            .sidebar-menu-box {
+                .mat-mdc-list-base {
+                    .mdc-list-item__content {
+                        .mat-mdc-list-item-unscoped-content {
+                            justify-content: center;
+                        }
+                    }
+                    .mat-expansion-panel {
+                        .mat-expansion-panel-header {
+                            .mat-content {
+                                justify-content: center;
+                                .menu-txt {
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .sidebar-menu-box {
+            height: calc(100vh - 70px);
+            .sidebar-menu-con {
+                position: relative;
+                height: 100%;
+                background-color: $buttonTextColor;
+                padding: 10px;
+                border-right: 0;
+                .mat-drawer-inner-container {
+                    overflow: initial;
+                }
+            }
+            .mat-mdc-list-base {
+                padding-top: 0;
+                .mat-mdc-list-item {
+                    height: 40px;
+                    padding: 0;
+                    @include border-radius(4px);
+                    margin-bottom: 10px;
+                    &.active, &:hover {
+                        @include sidebar-bg;
+                        .mdc-list-item__content {
+                            color: $whiteColor;
+                            .mat-mdc-list-item-unscoped-content {
+                                i {
+                                    @include icon(22px, $whiteColor);
+                                    font-weight: $bold;
+                                }
+                                .menu-txt {
+                                    color: $whiteColor;
+                                }
+                            }
+                        }                        
+                        .mdc-list-item__content {
+                            i {
+                                @include icon(18px, $whiteColor);
+                                font-weight: $bold;
+                            }
+                            .menu-txt {
+                                color: $whiteColor !important;
+                            }
+                        }
+                    }                    
+                    &:focus, &:hover {
+                        &::before {
+                            background-color: transparent;
+                        }
+                    }
+                    .mat-ripple-element {
+                        background-color: transparent;
+                    }
+                }
+                .mat-list-option {
+                    height: 40px;
+                }
+                .mdc-list-item__content {
+                    padding: 0;
+                    color: $secondaryColor;
+                    .mat-mdc-list-item-unscoped-content {
+                        display: inline-flex;
+                        align-items: center;
+                        width: 100%;
+                        i {
+                            display: block;
+                            width: 45px;
+                            height: 40px;
+                            min-width: 45px;
+                            text-align: center;
+                            line-height: 40px;
+                            @include icon(22px, $secondaryColor);
+                            font-weight: $bold;
+                        }
+                        .menu-txt {
+                            @include text(14px);
+                            color: $secondaryColor;
+                        }
+                    }
+                }
+                .mat-expansion-panel {
+                    @include border-radius(0px);
+                    background-color: $buttonTextColor;
+                    .mat-expansion-panel-header {
+                        padding: 0;
+                        height: 40px;
+                        @include border-radius(4px);
+                        margin-bottom: 10px;
+                        &.active, &:hover {
+                            @include sidebar-bg;
+                            .mat-content {
+                                i {
+                                    @include icon(22px, $whiteColor);
+                                    font-weight: $bold;
+                                }
+                                .menu-txt {
+                                    color: $whiteColor;
+                                }
+                            }
+                            .mat-expansion-indicator {
+                                &::after {
+                                    color: $whiteColor;
+                                }
+                            }
+                        }
+                        .mat-content {
+                            align-items: center;
+                            i {
+                                display: block;
+                                width: 45px;
+                                height: 40px;
+                                min-width: 45px;
+                                text-align: center;
+                                line-height: 40px;
+                                @include icon(22px, $secondaryColor);
+                                font-weight: $bold;
+                            }
+                            .menu-txt {
+                                @include text(14px);
+                                margin-right: 10px;
+                                color: $secondaryColor;
+                            }
+                        }
+                        .mat-expansion-indicator {
+                            margin-right: 20px;
+                            margin-bottom: 7px;
+                            &::after {
+                                color: $secondaryColor;
+                            }
+                        }
+                        &.mat-expanded {
+                            height: 40px;
+                            .mat-expansion-indicator {
+                                margin-bottom: 0;
+                                margin-top: 7px;
+                            }
+                        }
+                    }
+                    .mat-expansion-panel-body {
+                        padding: 0;
+                        .mat-mdc-list-base {
+                            span {
+                                &:not(:last-child) {
+                                    .mat-mdc-list-item {
+                                        margin-bottom: 5px;
+                                    }
+                                }
+                            }
+                            .mat-mdc-list-item {
+                                margin-bottom: 0;
+                                .mdc-list-item__content {
+                                    i {
+                                        line-height: 35px;
+                                        @include icon(18px, $secondaryColor);
+                                        font-weight: $bold;
+                                    }
+                                    .menu-txt {
+                                        @include text(14px);
+                                        color: $secondaryColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .main-content-box {
+        @include transition3s;
+        position: fixed;
+        top: 70px;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+        background-color: $lightGrayColor;
+        &.right-panel {
+            width: calc(100% - 280px);
+            margin-left: 280px;
+        }
+        &.side-content-panel {
+            width: calc(100% - 75px);
+            margin-left: 75px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .two-panel {
+        .sidebar-menu-panel {
+            &.left-panel {
+                display: none;
+            }
+            &.side-menu-panel {
+                display: block;
+                width: 100%;
+                .mat-expansion-indicator {
+                    display: block;
+                }
+                .sidebar-menu-box {
+                    .mat-mdc-list-base {
+                        .mdc-list-item__content {
+                            .mat-mdc-list-item-unscoped-content {
+                                justify-content: flex-start;
+                            }
+                        }
+                        .mat-expansion-panel {
+                            .mat-expansion-panel-header {
+                                .mat-content {
+                                    justify-content: flex-start;
+                                    .menu-txt {
+                                        margin-right: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .main-content-box { 
+            &.right-panel {
+                width: 100%;
+                margin-left: 0;
+            }
+            &.side-content-panel {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+}

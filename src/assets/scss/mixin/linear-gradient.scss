@@ -1,0 +1,14 @@
+// @include component-header-bg;
+@mixin component-header-bg {
+    background: linear-gradient(to right, $linearGradientLightBlueColor 0%, $linearGradientDarkBlueColor 100%);
+}
+
+// @include table-header-bg;
+@mixin table-header-bg {
+    background: linear-gradient(90deg, $linearGradientLightBlueColor 0, $linearGradientDarkBlueColor);
+}
+
+// @include sidebar-bg;
+@mixin sidebar-bg {
+    background: linear-gradient(to left, $linearGradientLightBlueColor 0%, $linearGradientDarkBlueColor 100%);
+}

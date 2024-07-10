@@ -1,0 +1,8 @@
+/* Component Header Css Start*/
+.creative-state-area {
+    position: relative;
+    padding: 1.5rem 2rem;
+    color: $whiteColor;
+    @include component-header-bg;
+}
+/* Component Header Css End*/

@@ -1,0 +1,151 @@
+.mdc-button {
+    &.mat-mdc-unelevated-button {
+        background-color: $buttonBgColor !important;
+        font-family: $montserrat;
+        min-width: 100px !important;
+        padding: 10px;
+        height: 42px;
+        .mdc-button__label {
+            @include textSize(14px, $buttonTextColor !important);
+            font-weight: $bold;
+            font-family: $montserrat;
+            letter-spacing: normal;
+        }
+        &:disabled {
+            opacity: 0.5;
+        }
+        &:hover {
+            @include buttonHoverShadow;
+        }
+    }
+    &.dark-bg-btn {
+        &.mat-mdc-unelevated-button {
+            background-color: $buttonTextColor !important;
+            .mdc-button__label {
+                color: $whiteColor !important;
+            }
+            &:disabled {
+                opacity: 0.5;
+            }
+            &:hover {
+                @include buttonHoverShadow;
+                .mdc-button__label {
+                    color: $buttonBgColor !important;
+                }
+            }
+            &:focus {
+                background-color: $buttonBgColor !important;
+                .mdc-button__label {
+                    color: $buttonTextColor !important;
+                }
+                i {
+                    color: $buttonTextColor !important;
+                }
+            }
+        }
+    }
+    &.theme-bg-btn {
+        &.mat-mdc-unelevated-button {
+            background-color: $buttonTextColor !important;
+            min-width: 180px !important;
+            height: 45px;
+            .mdc-button__label {
+                color: $whiteColor !important;
+                display: inline-flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                i {
+                    @include icon(20px, $buttonBgColor);
+                    font-weight: $medium;
+                }
+            }
+            &:disabled {
+                opacity: 0.5;
+            }
+            &:hover {
+                @include buttonHoverShadow;
+                .mdc-button__label {
+                    color: $buttonBgColor !important;
+                }
+            }
+            &:focus {
+                background-color: $buttonBgColor !important;
+                .mdc-button__label {
+                    color: $buttonTextColor !important;
+                    i {
+                        color: $buttonTextColor !important;
+                    }
+                }
+            }
+        }
+    }
+    &.close {
+        &.mat-mdc-unelevated-button {
+            background-color: transparent !important;
+            min-width: auto !important;
+            padding: 0 10px;
+            height: auto;
+            .mdc-button__label {
+                span {
+                    @include textSize(24px, $buttonTextColor !important);
+                }
+            }
+            &:disabled {
+                opacity: 0.5;
+            }
+        }
+    }
+    &.btn-border-dark {
+        &.mat-mdc-unelevated-button {
+            background-color: transparent !important;
+            border: solid 1px $buttonTextColor;
+            .mdc-button__label {
+                color: $buttonTextColor !important;
+            }
+            &:hover {
+                @include buttonHoverShadow;
+            }
+        }
+    }
+    // &.action-btn {
+    //     &.mat-mdc-unelevated-button {
+    //         background-color: transparent !important;
+    //         border: solid 1px $primaryColor;
+    //         min-width: 30px !important;
+    //         height: 30px;
+    //         padding: 0;
+    //         margin: 0 5px;
+    //         .mat-icon {
+    //             margin: 0;
+    //             height: 30px;
+    //             width: 30px;
+    //             line-height: 30px;
+    //             span {
+    //                 @include icon(20px, $primaryColor);
+    //             }
+    //         }
+    //         &.manage-condtition-btn {
+    //             padding: 0 5px;
+    //             .mdc-button__label {
+    //                 color: $primaryColor !important;
+    //             }
+    //         }
+    //     }
+    // }
+}
+.mat-mdc-button, .mat-mdc-raised-button, .mat-mdc-unelevated-button, .mat-mdc-outlined-button {
+    &.mat-mdc-button-base {
+        height: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mdc-button {
+        &.theme-bg-btn {
+            &.mat-mdc-unelevated-button {
+                min-width: 150px !important;
+            }
+        }
+    }
+}

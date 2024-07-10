@@ -1,0 +1,38 @@
+@import '../../../../assets/scss/import/variable.scss';
+@import '../../../../assets/scss/mixin/font-style.scss';
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    content: "/";
+    @include textSize(18px, $whiteColor);
+    font-weight: $normal;
+}
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: 0;
+}
+.breadcrumb-item {
+    &.active {
+    @include textSize(18px, $whiteColor);
+        font-weight: $light;
+        text-transform: capitalize;
+        span {
+            @include textSize(14px, $whiteColor);
+            font-weight: $normal;
+        }
+    }
+    .page-title {
+        display: inline-block;
+        span, a {
+            @include textSize(18px, $whiteColor);
+            text-transform: capitalize;
+            font-weight: $semibold;
+        }
+        a {
+            &:hover {
+                color: $darkGrayColor;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.mat-mdc-card {
+    background-color: $whiteColor !important;
+    color: $darkGrayColor;
+    height: 100%;
+    @include border-radius(5px !important);
+    @include cardShadow;
+    .mat-mdc-card-header {
+        .custom-title-wrap {
+            margin-left: -16px;
+            padding-left: 15px;
+            border-left: 2px solid rgba($secondaryColor, 0.3);
+            &.bar-link {
+                border-color: $linkColor;
+            }
+            .custom-title {
+                @include textAllVariable(18px, $darkBlueColor, $montserrat, $semibold);
+            }
+        }
+    }
+    .mat-mdc-card-content {
+        padding: 15px;
+    }
+}

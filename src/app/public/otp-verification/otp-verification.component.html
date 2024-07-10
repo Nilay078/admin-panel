@@ -1,0 +1,38 @@
+<div class="full-height login-page otp-main-box">
+    <form class="login-box text-center">
+        <div class="login-logo">
+            <!-- <img [src]="imageUrl.logoUrl" alt="alumnly logo"> -->
+            <img src="/assets/images/alumnly-logo.png" alt="alumnly logo" />
+        </div>
+        <div class="login-box-inner">
+            <h5>Two-Factor Authentication</h5>
+            <p class="otp-sub-title">
+                Your account is protected with two-factor authentication. Please use Google authenticator and enter code below.
+            </p>
+            <p class="authenticator-txt">Authenticator Code</p>
+            <div class="form-group mat-form-field-width">
+                <ng-otp-input [config]="config"></ng-otp-input>
+            </div>
+            <div class="form-group my-4">
+                <span class="small-loading">
+                    <button class="w-50" type="submit" mat-flat-button color="primary" [disabled]="clicked">
+                        Verify
+                        <!-- {{ clicked ? '' : 'Verify' }} -->
+                        <!-- <app-loader [count]="3" *ngIf="clicked"></app-loader> -->
+                    </button>
+                </span>
+            </div>
+            <ng-container>
+                <p class="time-left-txt">{{ timeLeft }} sec</p>
+            </ng-container>
+            <ng-container>
+                <p class="time-left-txt">Didn't get the OTP? <a>Resend</a></p>
+            </ng-container>
+        </div>
+    </form>
+    <div class="footer-box text-center">
+        <a href="https://alumnly.com/privacy" target="_blank">Privacy Policy</a> |
+        <a href="https://alumnly.com/terms-conditions" target="_blank">Terms of Use</a> <br />
+        Alumni Network Powered By <a href="https://alumnly.com/why-join-alumnly-network" target="_blank">Alumnly</a>
+    </div>
+</div>

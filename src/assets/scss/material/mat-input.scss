@@ -1,0 +1,164 @@
+// Login Input Css Start
+.login-page {
+    .mdc-text-field--outlined {
+        padding: 0 16px !important;
+        background-color: $whiteColor;
+        height: 45px !important;
+        border: solid 1px $whiteColor;
+        @include border-radius(4px);
+        .mat-mdc-form-field-flex {
+            height: 45px;
+            .mat-mdc-form-field-infix {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                min-height: 45px !important;
+                .mat-mdc-input-element {
+                    &:focus {
+                        box-shadow: none !important;
+                    }
+                }
+            }
+        }
+        &:not(.mdc-text-field--disabled) {
+            .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                border-color: $whiteColor;
+                border: 0 !important;
+            }
+            .mdc-text-field__input {
+                &::placeholder {
+                    color: $secondaryColor;
+                }
+                color: $buttonTextColor;
+            }
+            &:not(.mdc-text-field--focused) {
+                &:hover {
+                    .mdc-notched-outline {
+                        .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                            border-color: $whiteColor;
+                        }
+                    }
+                }
+            }
+            &.mdc-text-field--focused {
+                .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                    border-color: $whiteColor !important;
+                }
+            }
+        }
+    }
+    .mat-mdc-form-field-has-icon-suffix {
+        .mat-mdc-text-field-wrapper {
+            padding-right: 0 !important;
+        }
+    }
+}
+// Login Input Css End
+// Change Password Input Css Start
+.primary-input-box {
+    .mdc-text-field--outlined {
+        height: 45px !important;
+        .mat-mdc-form-field-flex {
+            height: 45px;
+            .mat-mdc-form-field-infix {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                min-height: 45px !important;
+            }
+            .mat-mdc-floating-label {
+                top: 50%;
+                &.mdc-floating-label--float-above {
+                    top: 25px;
+                }
+            }
+            .mat-mdc-form-field-icon-suffix {
+                mat-icon {
+                    @include icon(20px, $linkColor);
+                    opacity: 1 !important;
+                }
+            }
+        }
+        &:not(.mdc-text-field--disabled) {
+            .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                border-color: $linkColor;
+            }
+            &:not(.mdc-text-field--focused) {
+                &:hover {
+                    .mdc-notched-outline {
+                        .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                            border-color: $linkColor;
+                        }
+                    }
+                }
+            }
+            &.mdc-text-field--focused {
+                .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                    border-color: $linkColor !important;
+                }
+            }
+            .mat-mdc-select {
+                .mat-mdc-select-arrow {
+                    color: $linkColor;
+                    font-weight: $bold;
+                }
+            }
+        }
+    }
+    .mdc-text-field {
+        &:not(.mdc-text-field--disabled) {
+            .mdc-floating-label {
+                color: rgba($darkGrayColor, 0.5) !important;
+                font-family: $poppins;
+                .mdc-floating-label--required {
+                    &:not(.mdc-floating-label--hide-required-marker){
+                        &::after {
+                            color: rgba($darkGrayColor, 0.5);
+                        }
+                    }            
+                }
+            }
+            .mdc-text-field__input {
+                color: $darkGrayColor !important;
+                font-family: $poppins;
+                caret-color: $darkGrayColor !important;
+                &::placeholder {
+                    color: rgba($darkGrayColor, 0.5);
+                    font-family: $poppins;
+                }
+                &.read-only-txt {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+    .mat-mdc-select-placeholder {
+        color: rgba($darkGrayColor, 0.5) !important;
+        font-family: $poppins;
+    }
+    .mdc-text-field--invalid {
+        &:not(.mdc-text-field--disabled) {
+            .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+                border-color: $errorMessage;
+                opacity: 1;
+            }
+            .mdc-floating-label {
+                color: $errorMessage !important;
+                .mdc-floating-label--required {
+                    &:not(.mdc-floating-label--hide-required-marker){
+                        &::after {
+                            color: $errorMessage;
+                        }
+                    }            
+                }
+            }
+        }
+    }
+    .textarea-input-box {
+        .mdc-text-field--outlined {
+            height: auto !important;
+            .mat-mdc-form-field-flex {
+                height: auto;
+            }
+        }
+    }
+}
+// Change Password Input Css End

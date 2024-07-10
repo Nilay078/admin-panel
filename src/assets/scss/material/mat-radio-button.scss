@@ -1,0 +1,48 @@
+.mat-mdc-radio-button {
+    margin: 0 8px 0 0;
+    .mdc-label {
+        @include text(14px);
+        cursor: pointer;
+        padding: 0 10px;
+    }
+    .mdc-radio {
+        padding: 0 !important;
+        .mdc-radio__outer-circle {
+            border-color: $primaryColor !important;
+        }
+        .mdc-radio__inner-circle {
+            border-color: $primaryColor !important;
+        }
+        .mdc-radio__native-control {
+            &:enabled {
+                &:checked + .mdc-radio__background {
+                    .mdc-radio__outer-circle {
+                        border-color: $primaryColor !important;
+                    }
+                }
+            }
+        }
+        .mat-ripple-element {
+            background-color: $primaryColor !important;
+        }
+    }
+    &.mat-mdc-radio-checked {
+        .mdc-radio__background {
+            ::before {
+                background-color: $primaryColor;
+            }
+        }
+    }
+    &.mat-accent {
+        --mdc-radio-selected-focus-icon-color: $primaryColor;
+        --mdc-radio-selected-hover-icon-color: $primaryColor;
+        --mdc-radio-selected-icon-color: $primaryColor;
+        --mdc-radio-selected-pressed-icon-color: $primaryColor;
+        --mat-radio-checked-ripple-color: $primaryColor;
+    }
+}
+@media (min-width: 767px) and (max-width: 1199px) {
+    .mat-mdc-radio-button {
+        margin: 0 4px 0 0;
+    }
+}

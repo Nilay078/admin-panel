@@ -1,0 +1,188 @@
+<div class="creative-state-area">
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+        </div>
+    </div>
+</div>
+
+<div class="main-content-wrapper">
+    <div class="row m-0 notification-tbl-box primary-input-box">
+        <div class="col-xl-12">
+            <mat-card>
+                <mat-card-content>
+                    <div *ngIf="!hasData" class="row">
+                        <app-line-skeleton-loader class="col-12" [theme]="theme"></app-line-skeleton-loader>
+                        <span [ngClass]="'col-12'" *ngFor="let i of placeholderList">
+                            <app-line-skeleton-loader [theme]="theme"></app-line-skeleton-loader>
+                        </span>
+                    </div>
+                    <ng-container *ngIf="hasData && notificationInfo">
+                        <form [formGroup]="notificationForm" #form="ngForm" (submit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="notification-content-box">
+                                        <div class="notification-heading-txt">
+                                            <p class="link-txt-color">Name</p>
+                                        </div>
+                                        <div class="notification-detail-txt">
+                                            <p class="notification-txt">{{ notificationInfo.name }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="notification-content-box">
+                                        <div class="notification-heading-txt">
+                                            <p class="link-txt-color">Type</p>
+                                        </div>
+                                        <div class="notification-detail-txt">
+                                            <mat-radio-group formControlName="type" [(ngModel)]="notificationInfo.type">
+                                                <mat-radio-button
+                                                    *ngFor="let notificationType of typeList"
+                                                    [value]="notificationType"
+                                                    [disabled]="true"
+                                                    [checked]="notificationInfo.type === notificationType"
+                                                >
+                                                    {{ notificationType }}
+                                                </mat-radio-button>
+                                            </mat-radio-group>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <p class="required link-txt-color input-field-label-txt">Subject</p>
+                                    <div class="form-group mat-form-field-width">
+                                        <mat-form-field appearance="outline">
+                                            <input
+                                                id="subject"
+                                                readonly
+                                                matInput
+                                                formControlName="subject"
+                                                placeholder="Type subject here..."
+                                                class="read-only-txt"
+                                            />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="error-msg-outer" *ngIf="notificationForm.controls['subject'].touched || form.submitted">
+                                        <app-error-message class="error-message" [errors]="notificationForm.controls['subject'].errors">
+                                        </app-error-message>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <p class="link-txt-color input-field-label-txt">Description</p>
+                                    <div class="form-group mat-form-field-width textarea-input-box">
+                                        <mat-form-field appearance="outline">
+                                            <textarea
+                                                autosize
+                                                matInput
+                                                cdkTextareaAutosize
+                                                placeholder="Type description here..."
+                                                id="description"
+                                                formControlName="description"
+                                                [(ngModel)]="notificationInfo.description"
+                                            ></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="error-msg-outer" *ngIf="notificationForm.controls['description'].touched || form.submitted">
+                                        <app-error-message class="error-message" [errors]="notificationForm.controls['description'].errors">
+                                        </app-error-message>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 mb-4">
+                                    <p class="required link-txt-color input-field-label-txt">Body</p>
+                                    <div class="form-group mat-form-field-width textarea-input-box">
+                                        <app-tinymce-editor
+                                            [toolbar]="notificationToolBar"
+                                            [menubar]="false"
+                                            [height]="'1100px'"
+                                            [(inputModel)]="notificationInfo.emailContentView.content"
+                                            (inputModelChange)="onEmailContentChange($event)"
+                                        >
+                                        </app-tinymce-editor>
+                                    </div>
+                                    <div
+                                        class="error-msg-outer tinymce-error-msg-outer"
+                                        *ngIf="notificationForm.controls['content'].touched || form.submitted"
+                                    >
+                                        <app-error-message class="error-message" [errors]="notificationForm.controls['content'].errors">
+                                        </app-error-message>
+                                    </div>
+                                </div>
+                                <ng-container
+                                    *ngIf="
+                                        notificationInfo.type === notificationTypeEnum.weekly ||
+                                        notificationInfo.type === notificationTypeEnum.daily
+                                    "
+                                >
+                                    <div class="col-12 col-md-12">
+                                        <p class="required link-txt-color input-field-label-txt">Time</p>
+                                        <div class="form-group mat-form-field-width textarea-input-box">
+                                            <mat-form-field appearance="outline">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    [ngxTimepicker]="timepicker"
+                                                    [(ngModel)]="notificationInfo.time"
+                                                    formControlName="scheduleTime"
+                                                    placeholder="Select Time"
+                                                />
+                                                <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+                                            </mat-form-field>
+                                        </div>
+                                        <div
+                                            class="error-msg-outer"
+                                            *ngIf="notificationForm.controls['scheduleTime'].touched || form.submitted"
+                                        >
+                                            <app-error-message
+                                                class="error-message"
+                                                [errors]="notificationForm.controls['scheduleTime'].errors"
+                                            >
+                                            </app-error-message>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="notificationInfo.type === notificationTypeEnum.weekly">
+                                    <div class="col-12 col-md-12">
+                                        <p class="required link-txt-color input-field-label-txt">Day</p>
+                                        <div class="form-group mat-form-field-width">
+                                            <mat-radio-group formControlName="day" [(ngModel)]="notificationInfo.day">
+                                                <mat-radio-button
+                                                    *ngFor="let notificationDay of dayList"
+                                                    [value]="notificationDay"
+                                                    [checked]="notificationInfo.day?.key === notificationDay.key"
+                                                >
+                                                    {{ notificationDay.value }}
+                                                </mat-radio-button>
+                                            </mat-radio-group>
+                                        </div>
+                                        <div class="error-msg-outer" *ngIf="notificationForm.controls['day'].touched || form.submitted">
+                                            <app-error-message class="error-message" [errors]="notificationForm.controls['day'].errors">
+                                            </app-error-message>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <div class="col-12 col-md-12 text-end mt-4">
+                                    <button
+                                        mat-flat-button
+                                        color="primary"
+                                        type="button"
+                                        class="theme-bg-btn me-3"
+                                        [routerLink]="['/' + navigationUrl.NOTIFICATION]"
+                                    >
+                                        Cancel
+                                        <i class="icon-cross-circle"></i>
+                                    </button>
+                                    <button mat-flat-button color="primary" type="submit" class="theme-bg-btn" [disabled]="clicked">
+                                        {{ clicked ? '' : 'Update & Exit' }}
+                                        <app-loader class="w-100" *ngIf="clicked" [count]="3"></app-loader>
+                                        <i *ngIf="!clicked" class="icon-exit"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-container>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

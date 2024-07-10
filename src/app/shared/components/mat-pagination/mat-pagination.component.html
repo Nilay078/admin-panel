@@ -1,0 +1,11 @@
+<mat-paginator
+    class="pagination mt-3"
+    [pageSizeOptions]="pagination.pageSizes"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+    (page)="paginationChange($event)"
+    [pageIndex]="pagination.pageIndex"
+    [pageSize]="pagination.pageSize"
+    [length]="pagination.length"
+>
+</mat-paginator>

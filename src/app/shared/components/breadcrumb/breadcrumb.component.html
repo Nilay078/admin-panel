@@ -1,0 +1,22 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus, @angular-eslint/template/click-events-have-key-events -->
+<div class="row">
+    <div class="col-lg-12 col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0" *ngIf="breadcrumbs.length >= 2">
+                <li class="breadcrumb-item" [ngClass]="{ active: last }" *ngFor="let breadcrumb of breadcrumbs; let last = last">
+                    <div class="page-title" *ngIf="!last" (click)="changeRouting(breadcrumb.value)">
+                        <a>{{ breadcrumb.key }}</a>
+                    </div>
+                    <span *ngIf="last">{{ breadcrumb.key }}</span>
+                </li>
+            </ol>
+            <ol class="breadcrumb m-0" *ngIf="breadcrumbs.length < 2">
+                <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs">
+                    <div class="page-title">
+                        <span>{{ breadcrumb.key }}</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>

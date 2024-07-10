@@ -1,0 +1,40 @@
+.ng-otp-input-wrapper .otp-input:not(:last-child) {
+    margin-right: 20px !important;
+}
+.otp-input {
+    width: 55px !important;
+    border: solid 1px $whiteColor !important;
+    background-color: $whiteColor;
+    outline: 0;
+    color: $darkGrayColor;
+    caret-color: $darkGrayColor;
+}
+@media (max-width: 1366px) {
+    .otp-input {
+        width: 55px !important;
+    }
+}
+@media (max-width: 1200px) {
+    .ng-otp-input-wrapper .otp-input:not(:last-child) {
+        margin-right: 10px !important;
+    }
+    .otp-input {
+        width: 60px !important;
+    }
+}
+@media (max-width: 991px) {
+    .ng-otp-input-wrapper .otp-input:not(:last-child) {
+        margin-right: 20px !important;
+    }
+    .otp-input {
+        width: 55px !important;
+    }
+}
+@media (max-width: 575px) {
+    .ng-otp-input-wrapper .otp-input:not(:last-child) {
+        margin-right: 8px !important;
+    }
+    .otp-input {
+        width: 45px !important;
+    }
+}

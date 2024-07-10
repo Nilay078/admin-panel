@@ -1,0 +1,64 @@
+<app-header
+    [isExpanded]="isExpanded"
+    [showResponsive]="showResponsive"
+    (responsiveFlag)="responsiveFlag($event)"
+    (expandedFlag)="expandedFlag($event)"
+></app-header>
+<div class="two-panel">
+    <div class="sidebar-menu-panel" [ngClass]="isExpanded ? 'left-panel' : 'side-menu-panel'">
+        <mat-sidenav-container class="sidebar-menu-box">
+            <mat-sidenav
+                #sidenav
+                class="sidebar-menu-con"
+                mode="side"
+                opened="true"
+                (mouseenter)="mouseenter()"
+                (mouseleave)="mouseleave()"
+            >
+                <mat-accordion>
+                    <mat-nav-list>
+                        <ng-container *ngFor="let menu of menuList; index as i">
+                            <ng-container
+                                [ngTemplateOutlet]="menu.children ? childMenu : parentMenu"
+                                [ngTemplateOutletContext]="{ menu: menu }"
+                            >
+                            </ng-container>
+                        </ng-container>
+
+                        <ng-template #parentMenu let-menu="menu">
+                            <mat-list-item [routerLink]="menu.routerLink" [ngClass]="menu.active ? 'active' : ''" (click)="openMenu(menu)">
+                                <i [class]="menu.icon"></i>
+                                <span class="menu-txt">{{ isExpanded || showResponsive ? menu.text : '' }}</span>
+                            </mat-list-item>
+                        </ng-template>
+
+                        <ng-template #childMenu let-menu="menu">
+                            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                                <mat-expansion-panel-header [ngClass]="menu.active ? 'active' : ''">
+                                    <i [class]="menu.icon"></i>
+                                    <span class="menu-txt">{{ isExpanded || showResponsive ? menu.text : '' }}</span>
+                                </mat-expansion-panel-header>
+                                <mat-nav-list>
+                                    <span *ngFor="let submenu of menu.children">
+                                        <mat-list-item
+                                            [routerLink]="submenu.routerLink"
+                                            (click)="openMenu(menu, submenu)"
+                                            [ngClass]="submenu.active ? 'active' : ''"
+                                        >
+                                            <i [class]="submenu.icon"></i>
+                                            <span class="menu-txt">{{ isExpanded || showResponsive ? submenu.text : '' }}</span>
+                                        </mat-list-item>
+                                    </span>
+                                </mat-nav-list>
+                            </mat-expansion-panel>
+                        </ng-template>
+                    </mat-nav-list>
+                </mat-accordion>
+            </mat-sidenav>
+        </mat-sidenav-container>
+    </div>
+
+    <div class="main-content-box" [ngClass]="isExpanded ? 'right-panel' : 'side-content-panel'">
+        <router-outlet></router-outlet>
+    </div>
+</div>

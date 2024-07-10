@@ -1,0 +1,19 @@
+// @include profileImage(50%, 32px, 32px);
+@mixin profileImage($radius, $width, $height) {
+    @include border-radius($radius);
+    width: $width;
+    height: $height;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    img {
+        @include border-radius($radius);
+        height: 100%;
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        max-width: 100%;
+    }
+}

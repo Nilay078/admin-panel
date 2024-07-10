@@ -1,0 +1,29 @@
+.notification-content-box {
+    width: 100%;
+    display: inline-flex;
+    margin-bottom: 15px;
+    .notification-heading-txt {
+        width: 70px;
+        position: relative;
+        p {
+            @include text(14px);
+            font-weight: $medium;
+            margin-bottom: 0;
+            &::after {
+                content: ":";
+                position: absolute;
+                top: 0;
+                right: 10px;
+            }
+        }
+    }
+    .notification-detail-txt {
+        width: calc(100% - 150px);
+        margin-left: 10px;
+        word-break: break-all;
+        .notification-txt {
+            @include text(14px);
+            margin-bottom: 0;
+        }
+    }
+}

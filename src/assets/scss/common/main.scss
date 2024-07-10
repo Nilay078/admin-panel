@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: $primaryColor rgba($primaryColor, 0.2);
+}
+// ScrollBar CSS Start
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: rgba($primaryColor, 0.2);
+}
+::-webkit-scrollbar-thumb {
+    background-color: $primaryColor !important;
+    @include border-radius(3px);
+}
+// ScrollBar CSS End
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    outline: none;
+    font-family: $poppins;
+    background-color: $lightGrayColor;
+}
+h1 {
+    @include heading(40px);
+}
+h2 {
+    @include heading(36px);
+}
+h3 {
+    @include heading(32px);
+}
+h4 {
+    @include heading(28px);
+}
+h5 {
+    @include heading(24px);
+}
+h6 {
+    @include heading(20px);
+}
+p, span, li {
+    @include text(16px);
+}
+a {
+    @include text(14px);
+    text-decoration: none;
+    cursor: pointer;
+    color: $lintTextColor;
+    &:hover {
+        color: $linkColor;
+        text-decoration: none;
+    }
+    &:not([href]) {
+        &:not([class]) {
+            @include text(14px);
+            text-decoration: none;
+            cursor: pointer;
+            color: $lintTextColor;
+        }
+    }
+    &:not([href]) {
+        &:not([class]) {
+            &:hover {
+                color: $linkColor;
+                text-decoration: none;
+            }
+        }
+    }
+}
+// input, select, textarea css start
+.mat-form-field-width {
+    .mat-mdc-form-field {
+        width: 100%;
+    }
+}
+// input, select, textarea css end
+// Error Message css start
+.error-msg-outer {
+    position: relative;
+    .error-message {
+        top: -18px;
+        position: relative;
+        left: 0;
+        color: $errorMessage;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+        .mandatory{
+            @include textSize(11px, $errorMessage);
+            span {
+                @include textSize(11px, $errorMessage);
+            }
+        }
+    }
+    &.tinymce-error-msg-outer {
+        .error-message {
+            top: 5px;
+        }
+    }
+}
+// Error Message css end
+.spacer {
+    flex: 1 1 auto;
+}
+// Main Content Wrapper CSS Start
+.main-content-wrapper {
+    padding: 30px 15px;
+}
+// Main Content Wrapper CSS End
+// Color Class Css Start
+.primary-txt-color {
+    color: $primaryColor !important;
+}
+.primary-bg-color {
+    background-color: $primaryColor !important;
+}
+.secondary-txt-color {
+    color: $secondaryColor !important;
+}
+.secondary-bg-color {
+    background-color: $secondaryColor !important;
+}
+.dark-gray-txt-color {
+    color: $darkGrayColor !important;
+}
+.dark-gray-bg-color {
+    background-color: $darkGrayColor !important;
+}
+.link-txt-color {
+    color: $linkColor !important;
+}
+.link-bg-color {
+    background-color: $linkColor !important;
+}
+.error-txt-color {
+    color: $errorMessage !important;
+}
+.error-bg-color {
+    background-color: $errorMessage !important;
+}
+.success-txt-color {
+    color: $successMessage !important;
+}
+.success-bg-color {
+    background-color: $successMessage !important;
+}
+.warning-txt-color {
+    color: $warningMessage !important;
+}
+.warning-bg-color {
+    background-color: $warningMessage !important;
+}
+// Color Class Css End
+// Rounded Circle Css Start
+.rounded-circle {
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    @include border-radius(50%);
+}
+// Rounded Circle Css End
+// input, select, textarea css start
+.mat-form-field-width {
+    .mat-mdc-form-field {
+        width: 100%;
+    }
+}
+// input, select, textarea css end
+.required {
+    &::after {
+        content: "*";
+        color: $errorMessage;
+    }
+}
+.input-field-label-txt {
+    @include text(14px);
+    font-weight: $medium;
+}
+
+@media only screen and (max-width: 1199px) {
+    h1 {
+        @include heading(36px);
+    }
+    h2 {
+        @include heading(32px);
+    }
+    h3 {
+        @include heading(30px);
+    }
+    h4 {
+        @include heading(26px);
+    }
+    h5 {
+        @include heading(22px);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    h1 {
+        @include heading(32px);
+    }
+    h2 {
+        @include heading(28px);
+    }
+    h3 {
+        @include heading(26px);
+    }
+    h4 {
+        @include heading(22px);
+    }
+    h5 {
+        @include heading(20px);
+    }
+    h6 {
+        @include heading(18px);
+    }
+    p, span, li {
+        @include text(14px);
+    }
+    a {
+        @include text(12px);
+        color: $lintTextColor;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        @include heading(28px);
+    }
+    h2 {
+        @include heading(26px);
+    }
+    h3 {
+        @include heading(22px);
+    }
+    h4 {
+        @include heading(20px);
+    }
+    h5 {
+        @include heading(18px);
+    }
+    h6 {
+        @include heading(16px);
+    }
+    p, span, li {
+        @include text(12px);
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    h1 {
+        @include heading(26px);
+    }
+    h2 {
+        @include heading(22px);
+    }
+    h3 {
+        @include heading(20px);
+    }
+    h4 {
+        @include heading(18px);
+    }
+    h5 {
+        @include heading(16px);
+    }
+    h6 {
+        @include heading(14px);
+    }
+}
